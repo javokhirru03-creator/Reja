@@ -1,5 +1,4 @@
 console.log("Running the web server");
-const { setDefaultResultOrder } = require("dns");
 const express = require("express");
 const app = express();
 const http = require("http");
@@ -17,6 +16,9 @@ app.set("views", "views");
 app.set("view engine", "ejs");
 
 // 4 Routing
+app.get("/author", function (req, res) {
+  res.render("author");
+});
 app.post("/create-item", (req, res) => {
   console.log(req.body);
   res.json({ test: "Success" });
@@ -25,8 +27,9 @@ app.get("/", function (req, res) {
   res.render("harid");
 });
 
+
 const server = http.createServer(app);
-let PORT = 3000;
+let PORT = 3001;
 
 server.listen(PORT, function () {
   console.log(
