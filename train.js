@@ -73,12 +73,24 @@ async function maslahatBerish(yosh) {
 // console.log("passed here 2222");
 
 
-async function run() {
-    let javob = await maslahatBerish(100);
-    console.log("Javob:", javob);
-    javob = await maslahatBerish(25);
-    console.log("Javob:", javob);   
-    javob = await maslahatBerish(10);
-    console.log("Javob:", javob);   
+// async function run() {
+//     let javob = await maslahatBerish(100);
+//     console.log("Javob:", javob);
+//     javob = await maslahatBerish(25);
+//     console.log("Javob:", javob);   
+//     javob = await maslahatBerish(10);
+//     console.log("Javob:", javob);   
+// }
+// run();
+function countLetter(a, word) {
+  let count = 0;
+  for (let i = 0; i < word.length; i++) {
+    if (word[i] === a) {
+      count++;
+    }
+  }
+  return count;
 }
-run();
+
+console.log(countLetter("e", "engineer"));
+console.log(countLetter("e", "education"));
