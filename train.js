@@ -82,15 +82,37 @@ async function maslahatBerish(yosh) {
 //     console.log("Javob:", javob);   
 // }
 // run();
-function countLetter(a, word) {
-  let count = 0;
-  for (let i = 0; i < word.length; i++) {
-    if (word[i] === a) {
-      count++;
-    }
+// function countLetter(a, word) {
+//   let count = 0;
+//   for (let i = 0; i < word.length; i++) {
+//     if (word[i] === a) {
+//       count++;
+//     }
+//   }
+//   return count;
+// }
+
+// console.log(countLetter("e", "engineer"));
+// console.log(countLetter("e", "education"));
+
+//  ⭐️ Synchronous function vs Asynchronous function
+// Asynchronous: CALLBACK
+
+// DEFINE
+function qoldiqliBolish(a, b, callback) {
+  if (b === 0) {
+    callback("Mahraj nolga teng bolmaydi", null);
+  } else {
+    const c = a % b;
+    callback(null, c, true);
   }
-  return count;
 }
 
-console.log(countLetter("e", "engineer"));
-console.log(countLetter("e", "education"));
+// CALL
+qoldiqliBolish(40, 3, (err, data) => {
+  if (err) console.log("ERROR:", err);
+  else {
+    console.log("data:", data);
+    console.log("MATIQLAR ...");
+  }
+});
