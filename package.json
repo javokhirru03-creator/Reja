@@ -12,8 +12,9 @@
   "author": "by Nick",
   "license": "ISC",
   "dependencies": {
-    "ejs": "^3.1.10",
+    "ejs": "^3.1.6",
     "express": "^5.1.0",
+    "mongodb": "^3.2.6",
     "nodemon": "^3.1.10"
   }
 }
