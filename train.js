@@ -34,7 +34,6 @@
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
 // const list = [
 //     "Yahshi talaba boling", // 0-20
 //     "Togri boshliq tanlang va koproq hato qiling", // 20-30
@@ -72,14 +71,13 @@
 
 // console.log("passed here 2222");
 
-
 // async function run() {
 //     let javob = await maslahatBerish(100);
 //     console.log("Javob:", javob);
 //     javob = await maslahatBerish(25);
-//     console.log("Javob:", javob);   
+//     console.log("Javob:", javob);
 //     javob = await maslahatBerish(10);
-//     console.log("Javob:", javob);   
+//     console.log("Javob:", javob);
 // }
 // run();
 // function countLetter(a, word) {
@@ -117,38 +115,26 @@
 //   }
 // });
 
+// ///////////////////////////task-B
+// function countDigits(str) {
+//   let count = 0;
+//   for (let a of str) {
+//     if (a >= "0" && a <= "9") {
+//       count++;
+//     }
+//   }
+//   return count;
+// }
 
+// console.log(countDigits("ad2a54y79wet0sfgb9"));
 
+////////////tack c
 
+function checkContent(str1, str2) {
+  if (str1.length !== str2.length) return false;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-///////////////////////////task-B
-function countDigits(str) {
-  let count = 0;
-  for (let a of str) {
-    if (a >= "0" && a <= "9") {
-      count++;
-    }
-  }
-  return count;
+  return str1.split("").sort().join("") === str2.split("").sort().join("");
 }
 
-console.log(countDigits("ad2a54y79wet0sfgb9")); 
+console.log(checkContent("mitgroup", "gmtiprou")); // true
+console.log(checkContent("Nick", "cNki")); // true

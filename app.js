@@ -5,6 +5,7 @@ const app = express();
 //Mongo db chaqirish
 
 const db = require("./server").db("reja");
+const mongodb = require("mongodb");
 // 1 Kirish code
 app.use(express.static("public"));
 app.use(express.json());
@@ -36,14 +37,20 @@ app.post("/create-item", (req, res) => {
   console.log("req.body.reja", req.body.reja);
   const new_reja = req.body.reja;
   db.collection("plans").insertOne({ reja: new_reja }, (err, data) => {
-    if (err) {
-      console.log(err);
-      res.end("something went error");
-    } else {
-      res.end("sucsesfully");
-    }
+    res.json(data.ops[0]);
   });
 });
+
+app.post("/delete-item", (req, res) => {
+  const id = req.body.id;
+  db.collection("plans").deleteOne(
+    { _id: new mongodb.ObjectId(id) },
+    function (err, data) {
+      res.json({ state: "success" });
+    }
+  );
+});
+
 app.get("/", function (req, res) {
   console.log(`user entered /`);
   db.collection("plans")
