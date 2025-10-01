@@ -130,11 +130,62 @@
 
 ////////////tack c
 
-function checkContent(str1, str2) {
-  if (str1.length !== str2.length) return false;
+// function checkContent(str1, str2) {
+//   if (str1.length !== str2.length) return false;
 
-  return str1.split("").sort().join("") === str2.split("").sort().join("");
+//   return str1.split("").sort().join("") === str2.split("").sort().join("");
+// }
+
+// console.log(checkContent("mitgroup", "gmtiprou")); // true
+// console.log(checkContent("Nick", "cNki")); // true
+
+//////////////////////////////////task D
+
+class Shop {
+  constructor(non, lagmon, cola) {
+    this.products = {
+      non,
+      lagmon,
+      cola,
+    };
+  }
+
+  _getTime() {
+    const now = new Date();
+    const h = String(now.getHours()).padStart(2, "0");
+    const m = String(now.getMinutes()).padStart(2, "0");
+    return `${h}:${m}`;
+  }
+
+  qoldiq() {
+    const { non, lagmon, cola } = this.products;
+    const time = this._getTime();
+    return `Hozir ${time} da ${non}ta non, ${lagmon}ta lagmon va ${cola}ta cola mavjud!`;
+  }
+
+  sotish(product, amount) {
+    if (this.products[product] === undefined) {
+      return `Bunday mahsulot yo'q!`;
+    }
+    if (this.products[product] < amount) {
+      return `Yetarli ${product} yo'q!`;
+    }
+    this.products[product] -= amount;
+    return `Hozir ${this._getTime()} da ${amount}ta ${product} sotildi!`;
+  }
+
+  qabul(product, amount) {
+    if (this.products[product] === undefined) {
+      return `Bunday mahsulot yo'q!`;
+    }
+    this.products[product] += amount;
+    return `Hozir ${this._getTime()} da ${amount}ta ${product} qabul qilindi!`;
+  }
 }
 
-console.log(checkContent("mitgroup", "gmtiprou")); // true
-console.log(checkContent("Nick", "cNki")); // true
+const shop = new Shop(4, 5, 2);
+
+console.log(shop.qoldiq());
+console.log(shop.sotish("non", 3));
+console.log(shop.qabul("cola", 4));
+console.log(shop.qoldiq());

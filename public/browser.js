@@ -32,7 +32,7 @@ document.getElementById("create-form").addEventListener("submit", function (e) {
       document
         .getElementById("item-list")
         .insertAdjacentHTML("beforeend", itemTemplate(response.data));
-      createField.value = "promt";
+      createField.value = "";
       createField.focus();
     })
     .catch((err) => {});
@@ -52,4 +52,34 @@ document.addEventListener("click", function (e) {
         .catch((err) => {});
     }
   }
+});
+
+//edit oper
+if (e.target.classList.contains("edit-me")) {
+  let userInput = prompt(
+    "O'zgartirish kiriting",
+    e.target.parentElement.parentElement.querySelector(".item-text").innerHTML
+  );
+  if (userInput) {
+    axios
+      .post("/edit-item", {
+        id: e.target.getAttribute("data-id"),
+        new_input: userInput,
+      })
+      .then((response) => {
+        console.log(response.data);
+        e.target.parentElement.parentElement.querySelector(
+          ".item-text"
+        ).innerHTML = userInput;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+}
+document.getElementById("clean-all").addEventListener("click", function () {
+  axios.post("/delete-all", { delete_all: true }).then((response) => {
+    alert(response.data.state);
+    document.location.reload();
+  });
 });
