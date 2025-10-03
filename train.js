@@ -141,51 +141,59 @@
 
 //////////////////////////////////task D
 
-class Shop {
-  constructor(non, lagmon, cola) {
-    this.products = {
-      non,
-      lagmon,
-      cola,
-    };
-  }
+// class Shop {
+//   constructor(non, lagmon, cola) {
+//     this.products = {
+//       non,
+//       lagmon,
+//       cola,
+//     };
+//   }
 
-  _getTime() {
-    const now = new Date();
-    const h = String(now.getHours()).padStart(2, "0");
-    const m = String(now.getMinutes()).padStart(2, "0");
-    return `${h}:${m}`;
-  }
+//   _getTime() {
+//     const now = new Date();
+//     const h = String(now.getHours()).padStart(2, "0");
+//     const m = String(now.getMinutes()).padStart(2, "0");
+//     return `${h}:${m}`;
+//   }
 
-  qoldiq() {
-    const { non, lagmon, cola } = this.products;
-    const time = this._getTime();
-    return `Hozir ${time} da ${non}ta non, ${lagmon}ta lagmon va ${cola}ta cola mavjud!`;
-  }
+//   qoldiq() {
+//     const { non, lagmon, cola } = this.products;
+//     const time = this._getTime();
+//     return `Hozir ${time} da ${non}ta non, ${lagmon}ta lagmon va ${cola}ta cola mavjud!`;
+//   }
 
-  sotish(product, amount) {
-    if (this.products[product] === undefined) {
-      return `Bunday mahsulot yo'q!`;
-    }
-    if (this.products[product] < amount) {
-      return `Yetarli ${product} yo'q!`;
-    }
-    this.products[product] -= amount;
-    return `Hozir ${this._getTime()} da ${amount}ta ${product} sotildi!`;
-  }
+//   sotish(product, amount) {
+//     if (this.products[product] === undefined) {
+//       return `Bunday mahsulot yo'q!`;
+//     }
+//     if (this.products[product] < amount) {
+//       return `Yetarli ${product} yo'q!`;
+//     }
+//     this.products[product] -= amount;
+//     return `Hozir ${this._getTime()} da ${amount}ta ${product} sotildi!`;
+//   }
 
-  qabul(product, amount) {
-    if (this.products[product] === undefined) {
-      return `Bunday mahsulot yo'q!`;
-    }
-    this.products[product] += amount;
-    return `Hozir ${this._getTime()} da ${amount}ta ${product} qabul qilindi!`;
-  }
+//   qabul(product, amount) {
+//     if (this.products[product] === undefined) {
+//       return `Bunday mahsulot yo'q!`;
+//     }
+//     this.products[product] += amount;
+//     return `Hozir ${this._getTime()} da ${amount}ta ${product} qabul qilindi!`;
+//   }
+// }
+
+// const shop = new Shop(4, 5, 2);
+
+// console.log(shop.qoldiq());
+// console.log(shop.sotish("non", 3));
+// console.log(shop.qabul("cola", 4));
+// console.log(shop.qoldiq());
+
+////////////////////////////////////tack E
+function getReverse(string) {
+  return string.split("").reverse().join("");
 }
 
-const shop = new Shop(4, 5, 2);
-
-console.log(shop.qoldiq());
-console.log(shop.sotish("non", 3));
-console.log(shop.qabul("cola", 4));
-console.log(shop.qoldiq());
+console.log(getReverse("hello"));
+console.log(getReverse("world"));
