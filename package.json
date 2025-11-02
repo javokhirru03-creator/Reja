@@ -12,6 +12,7 @@
   "author": "by Nick",
   "license": "ISC",
   "dependencies": {
+    "chars": "^2.3.0",
     "ejs": "^3.1.6",
     "express": "^5.1.0",
     "mongodb": "^3.2.6",

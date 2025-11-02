@@ -1,0 +1,211 @@
+/* instagram.css */
+/* Google font: Grand Hotel (logo) */
+@import url("https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap");
+
+:root {
+  --bg: #fafafa;
+  --input-border: #dbdbdb;
+  --muted: #8e8e8e;
+  --primary: #6d6bff; /* purple-ish button similar to screenshot */
+  --primary-hover: #5b59e6;
+  --fb-blue: #385185;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --card-bg: #fff;
+  --radius: 6px;
+  --max-w: 350px;
+}
+
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: #111;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 32px 16px;
+}
+
+/* Center container */
+.container {
+  width: 100%;
+  max-width: var(--max-w);
+  margin: 48px auto 24px;
+  text-align: center;
+}
+
+/* Logo */
+.logo {
+  font-family: "Grand Hotel", cursive;
+  font-size: 56px;
+  margin-bottom: 20px;
+  color: #262626;
+  letter-spacing: 0.5px;
+}
+
+/* Form card look (visually centered group) */
+.login-card {
+  background: transparent;
+  padding: 0 8px;
+}
+
+/* inputs & button block */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid var(--input-border);
+  background: #fff;
+  outline: none;
+  box-shadow: none;
+}
+
+.login-form input::placeholder {
+  color: #999;
+}
+
+/* primary button */
+.login-form button {
+  margin-top: 6px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(180deg, var(--primary), var(--primary-hover));
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+
+/* disabled-like look when inputs empty (visual) */
+.login-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* OR separator */
+.or-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 14px 0;
+}
+
+.or-block .line {
+  height: 1px;
+  width: 35%;
+  background: var(--input-border);
+}
+
+.or-block p {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 600;
+  letter-spacing: 0.6px;
+}
+
+/* facebook login row */
+.facebook-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.facebook-login img {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.facebook-login a {
+  text-decoration: none;
+  color: var(--fb-blue);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* forgot password */
+.forgot {
+  display: block;
+  margin: 8px 0 18px;
+  color: #00376b;
+  font-size: 13px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* register box (separate card look) */
+.register-box {
+  margin-top: 14px;
+  background: var(--card-bg);
+  border: 1px solid var(--input-border);
+  padding: 14px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.register-box p {
+  color: #262626;
+}
+.register-box a {
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* footer small text */
+footer {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* small-screen tweaks */
+@media (max-width: 420px) {
+  .logo {
+    font-size: 48px;
+    margin-bottom: 18px;
+  }
+  body {
+    padding-top: 18px;
+    padding-bottom: 26px;
+  }
+  .container {
+    margin: 28px auto;
+  }
+  .register-box {
+    padding: 12px;
+  }
+}
+
+/* Optional: make inputs look clickable on focus */
+.login-form input:focus {
+  border-color: #a0a0a0;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.02);
+}

